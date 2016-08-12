@@ -27,12 +27,16 @@ We estimate the population by calculating the population density first and we mu
 The webservice is running with Flask and use the following libraries:
 - py2neo
 - SPARQLWrapper
+
+
 The database is running with ne4oj graph database v > 3.0.
 
 # Project Structure
 The project has two main modules:
 - The loader module which is responsible for extracting and parsing data from the knowledge base, and loading them to neo4j database.
 - The estimator module which is responsible for searching for the requested place and computing the estimated population size.
+
+
 # Run
 - Preparing the data: We have a data.txt sample already prepared, to update this file with new cities, just run the following command
 ` python prepare_data.py `
@@ -40,6 +44,7 @@ The project has two main modules:
 ` python load_data.py `
 - Starting the webservice:
 ` python run_web_service.py `
+
 # Web Service parameters and output
 ##Request
 ###HTTP request
