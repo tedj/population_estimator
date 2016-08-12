@@ -49,6 +49,7 @@ Parameter name | Value	| Description
 ---------------| -------|------------
 q | string | the place name e.g. Mumbai
 radius | float | the radius in km e.g 30.0
+country | string | (optional) to filter with country
 ##Response
 If successful, this method returns a response body with the following structure:
 

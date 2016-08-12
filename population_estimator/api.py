@@ -10,6 +10,9 @@ def population_estimator_api():
     radius = None
     if 'radius' in params:
         radius = params['radius']
-    results = search(params['q'], radius)
+    country = None
+    if 'country' in params:
+        country = params['country']
+    results = search(params['q'], radius, country)
     return json.dumps(results)
 

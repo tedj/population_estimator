@@ -21,12 +21,19 @@ def estimate_population(population, area, radius):
     return int(density * selected_area)
 
 
-def search(q, radius):
-    query = """
-        MATCH (cityLabel:Label)-[]-(city:City)-[]-(country:Country)
-        WHERE cityLabel.label='%s'
-        RETURN city, country
-    """ % q
+def search(q, radius, country=None):
+    if country:
+        query = """
+                MATCH (cityLabel:Label)-[]-(city:City)-[]-(country:Country)-[]-(clabel:Label)
+                WHERE cityLabel.label='%s' and clabel.label='%s'
+                RETURN city, country
+            """ % (q, country)
+    else:
+        query = """
+            MATCH (cityLabel:Label)-[]-(city:City)-[]-(country:Country)
+            WHERE cityLabel.label='%s'
+            RETURN city, country
+        """ % q
     items = list()
     cursor = neo_graph.run(query)
     for record in cursor:
