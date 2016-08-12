@@ -35,6 +35,8 @@ The database is running with ne4oj graph database v > 3.0.
 The project has two main modules:
 - The loader module which is responsible for extracting and parsing data from the knowledge base, and loading them to neo4j database.
 - The estimator module which is responsible for searching for the requested place and computing the estimated population size.
+
+
 # Run
 - Preparing the data: We have a data.txt sample already prepared, to update this file with new cities, just run the following command
 ` python prepare_data.py `
