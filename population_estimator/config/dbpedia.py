@@ -1,0 +1,1 @@
+SPARQL_QUERY_ENDPOINT = "http://dbpedia.org/sparql"
