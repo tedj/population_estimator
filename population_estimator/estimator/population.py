@@ -25,15 +25,15 @@ def search(q, radius, country=None):
     if country:
         query = """
                 MATCH (cityLabel:Label)-[]-(city:City)-[]-(country:Country)-[]-(clabel:Label)
-                WHERE cityLabel.label='%s' and clabel.label='%s'
+                WHERE toLower(cityLabel.label) CONTAINS '%s' and toLower(clabel.label) CONTAINS '%s'
                 RETURN city, country
-            """ % (q, country)
+            """ % (q.lower(), country.lower())
     else:
         query = """
             MATCH (cityLabel:Label)-[]-(city:City)-[]-(country:Country)
-            WHERE cityLabel.label='%s'
+            WHERE toLower(cityLabel.label) CONTAINS '%s'
             RETURN city, country
-        """ % q
+        """ % q.lower()
     items = list()
     cursor = neo_graph.run(query)
     for record in cursor:
