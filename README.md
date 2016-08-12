@@ -27,6 +27,8 @@ We estimate the population by calculating the population density first and we mu
 The webservice is running with Flask and use the following libraries:
 - py2neo
 - SPARQLWrapper
+
+
 The database is running with ne4oj graph database v > 3.0.
 
 # Project Structure
